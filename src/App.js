@@ -1,25 +1,52 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import UserList from './UserList';
+import UserDetails from './UserDetails';
+import PieChart from './Chart'
+import './index.css';
+
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list:[],
+      showChart: false,
+    };
+   this.handleToggleClick = this.handleToggleClick.bind(this);
+  }
+
+  componentDidMount() {
+    fetch("https://randomuser.me/api/?results=5")
+      .then(res => res.json())
+      .then(
+        (data) => {
+          this.setState({
+            isLoaded: true,
+            list: data.results
+          });
+        }
+      )
+  }
+
+  handleToggleClick() {
+    this.setState(prevState => ({
+      showChart: !prevState.showChart
+    }));
+  }
+  
   render() {
+    const list = this.state.list;
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div id="wrapperApp">
+      <h1> Random Users App </h1>
+           <div id="wrapperApp1">
+          <button id='clickChart' onClick={this.handleToggleClick}>
+            {this.state.showChart ? 'Hide Pie Chart' : 'Show Pie Chart'}
+          </button>
+             </div>
+        <PieChart list={list} chart={this.state.showChart}/>
+        <UserList list={this.state.list} />
+        <UserDetails />
       </div>
     );
   }
