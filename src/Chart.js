@@ -3,8 +3,8 @@ import {Pie} from 'react-chartjs-2'
 
 export default function PieChart(props) {
 
-  const maleList =  props.list.filter((a)=>{return a.gender === 'male'});
-  const femaleList =  props.list.filter((a)=>{return a.gender === 'female'});
+  const maleList =  props.users.filter((a)=>{return a.gender == 'male'});
+  const femaleList =  props.users.filter((a)=>{return a.gender == 'female'});
   const male = maleList.length;
   const female = femaleList.length;
   const malePercent = ((male/(male+female))*100).toFixed(1);
@@ -27,7 +27,10 @@ export default function PieChart(props) {
   }
 
   return (
+    <div>
+    <h1 style={{textAlign:"center"}}> Gender of users </h1>
     <Pie data={data}/>
+    </div>
   );
 }
 

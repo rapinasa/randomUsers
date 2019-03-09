@@ -1,20 +1,125 @@
+
 *{
   padding: 0;
   margin: 0;
 }
 
-body{
-  font-size: 17px;
+body {
+  font-size: 18px;
   font-family: cursive;
 }
 
-button{
+.wrapperApp, .wrapper {
+  margin: 20px auto;
+  width: 960px;
+  background-color:#eee; 
+}
+
+.usersListWrapper:nth-child(2n-1) {
+    background-color: #CCCCCC; 
+   } 
+
+.usersList {
+  padding: 10px 10px;
+  background-color: rgba(226, 226, 226, 0.3);
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 17px;
+  font-weight: 600;
+  color: #6f6e6e;
+  transition: background-color 1s;
+  display: grid;
+  grid-template-columns: 100px 100px 110px 200px 200px 200px 50px;
+}
+
+.userListHeader {
+  margin: auto;
+  width: 960px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  background-color: rgba(226, 226, 226, 0.3);
+  cursor:pointer;
+  text-transform: capitalize;
+  font-size: 17px;
+  font-weight: 600;
+  color: black;
+  display: grid;
+  grid-template-columns: 100px 100px 110px 200px 200px 200px 50px;
+}
+
+.clickUser{
+  float: right;
+  margin-right: 20px;
+  color: #666666;
+  font-size: 50px;
+  background-color: inherit;
+
+}
+
+.userDetails-content {
+  background-color: inherit;
+  font-size: 15px;
+  overflow-y: hidden;
+  transition: height 0.7s, padding 0.7s;
+  padding-top: 10px;
+  padding-left: 10px;
+  
+}
+.userDetails-content>div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.userDetails-open {
+  height: 200px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.userDetails-close {
+  height: 0px;
+  padding-top: 0px;
+  padding-left: 10px;
+}
+
+.usersList img{
+   max-width: 50%;
+   border-radius: 50%;
+   float: left;
+   border: 3px solid white;
+}
+
+.userDetails-content img{
+   max-width: 100%;
+   border-radius: 50%;
+   float: left;
+   border: 3px solid white;
+}
+
+.userGender{
+  font-size:40px;
+}
+
+.userDetails-content strong{
+  margin-right:10px;
+}
+
+.userInfo{
+ width: 250px;
+}
+
+.clickChart{
+  border: 1px solid black;
+  padding:5px 10px;
+  background-color: #666666;
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  float: right;
   cursor: pointer;
 }
 
-li {
-  list-style-type: none;
-}
 
 input{
   border: 1px solid black;
@@ -23,133 +128,3 @@ input{
   border-radius: 5px;
   font-size: 20px;
 }
-
-
-#wrapperApp{
-  background: #EEEEEE;
-  max-width: 960px;
-  margin: auto;
-  padding:20px 10px;
-}
-
-#wrapperApp1{
-  float: right;
-}
-
-/*UsersList*/
-
-.usersListWrapper{
-  width: 100%;
-  background: #EEEEEE;
-  margin-bottom: 10px;
-}
-
-.usersListWrapper{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.userHeader{
-  padding: 20px 0;
-}
-
-.usersList{
-  display: flex;
-  justify-content: left;
-}
-
-.usersListWrapper .usersList{
-flex-grow: 5;
-justify-content: space-between;
-align-items: center;
-}
-
-.usersList span{
-flex-grow: 1;
-text-align: center;
-justify-content: space-around;
-}
-
-.usersList span:first-child{
-text-align: right;
-}
-
-.usersList span:last-child{
-text-align: left;
-}
-
-.usersListWrapper:nth-child(2n-1) {
-    background-color: #CCCCCC; 
-   } 
-
-.usersListWrapper .image{
-  width: 5%;
-}
-.usersListWrapper .image img{
-   max-width: 100%;
-   border-radius: 50%;
-   float: left;
-   border: 3px solid white;
-}
-
-.usersListWrapper span{
-  text-align: center;
-  text-transform:capitalize;
-}
-
-#clickChart{
-  border: 1px solid black;
-  padding:5px 10px;
-  background-color: #666666;
-  color: white;
-  border-radius: 5px;
-  font-size: 20px;
-}
-
-#clickUser{
-  background-color: inherit;
-  color: #666666;
-  font-size: 30px;
-  border: none;
-  padding: 2px 30px;
-}
-
-
-/*UserDetails*/
-
-.userDetails {
-  display: none;
-  z-index: 100;
-  width: 100%;
-  padding-bottom: 20px;
-}
-
-.userDetails-content{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.userColumn{
-  display: flex;
-  flex-direction: column;
-}
-
-.userColumn img{
-   max-width: 100%;
-   border-radius: 50%;
-   float: left;
-   border: 4px solid white;
-}
-
-.gender{
-  display: flex;
-  margin-left: 15px;
-}
-
-.userGender{
-  font-size: 30px;
-  margin-left: 15px;
-}
-
